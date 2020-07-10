@@ -34,4 +34,4 @@ That's it. `DYNDNS2_URL`, `DYNDNS2_Username` and `DYNDNS2_Password` for the envi
 
 ## References
 
-[1] https://github.com/BastiG/dyndns-pdns
+[1] https://github.com/BastiG/dyndns2-pdns
