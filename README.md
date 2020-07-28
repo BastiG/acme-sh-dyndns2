@@ -12,7 +12,7 @@ You may define an environment, if you don't then the environment name will be `D
 ```bash
 export DYNDNS2_ENV=Database
 ```
-If you deploy only one tenant (i.e. one user which will be able to manage all the hostnames on this particular machine) then you don't have to think about environments. Otherwise think of an environment as a way to group service endpoint and credentials in your account configuration. In this case we want this particular environment to manage all certificates for our databases.
+If you deploy only one tenant (i.e. one set of credentials with which you will be able to manage all the hostnames on this particular machine) then you don't have to think about environments. Otherwise think of an environment as a way to group service endpoints and credentials in your account configuration. In this case we want this particular environment to manage certificates for our databases.
 
 If you already issued certificates for this a particular environment and the service endpoint and credentials didn't change, then chances are that you don't have to specify all those details again.
 
