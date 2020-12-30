@@ -111,11 +111,20 @@ _dyndns2_api() {
 
   response=$(_get "${DYNDNS2_URL}?hostname=${fulldomain}&txt=${txtvalue}")
 
-  if [ "$?" != "0" ]; then
+  if [ "${response}" == "good" ] || [ "${response}" == "nochg" ]; then
+    _debug2 response "Request was successful"
+    _debug2 response "${response}"
+    return 0
+  else
     _err "Failed to update TXT record"
+    [ "${response}" == "911" ] && _err "Server failed"
+    [ "${response}" == "badauth" ] && _err "Authentication failed"
+    [ "${response}" == "nohost" ] && _err "Domain not found or user may not alter zone"
+    [ "${response}" == "numhosts" ] && _err "Too many hostnames in request"
+    [ "${response}" == "dnserr" ] && _err "DNS backend API failed"
+
     _debug2 response "${response}"
     return 1
   fi
-  _debug2 response "${response}"
-  return 0
+
 }
